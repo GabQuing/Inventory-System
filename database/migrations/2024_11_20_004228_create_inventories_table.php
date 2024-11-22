@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->text('supplement_name')->nullable();
+            $table->foreignId('components_id')->constrained('components');
+            $table->text('product_name')->nullable();
             $table->text('file_name')->nullable();
             $table->text('file_path')->nullable();
             $table->float('price', 8, 2);
             $table->integer('stock')->nullable();
-            $table->text('nutrition_facts')->nullable();
             $table->unsignedBigInteger('created_by')->length(10)->nullable();
             $table->unsignedBigInteger('updated_by')->length(10)->nullable();
             $table->timestamps();
