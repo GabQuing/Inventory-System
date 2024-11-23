@@ -23,24 +23,22 @@ class InventoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('supplement_name')
+                Forms\Components\Textarea::make('product_name')
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('file_name')
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('file_path')
-                    ->maxLength(65535)
+                Forms\Components\FileUpload::make('file_path')
+                    ->label('Upload Image')
+                    ->image()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('₱'),
                 Forms\Components\TextInput::make('stock')
                     ->numeric(),
-                Forms\Components\Textarea::make('nutrition_facts')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('created_by')
                     ->numeric(),
                 Forms\Components\TextInput::make('updated_by')
