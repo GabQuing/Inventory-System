@@ -23,6 +23,13 @@ class InventoryResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('components_id')
+                    ->relationship(name:'component', titleAttribute:'name')
+                    ->searchable()
+                    ->preload()
+                    // ->multiple()
+                    ->required()
+                    ->native(false),
                 Forms\Components\Textarea::make('product_name')
                     ->maxLength(65535)
                     ->columnSpanFull(),
